@@ -1,0 +1,25 @@
+version: 0.2
+# Configure a reviewed Flutter/JDK17/Android SDK CodeBuild image in an India region.
+# The macOS IPA signing runner is separately managed.
+phases:
+  install:
+    commands:
+      - flutter pub get
+      - dart run build_runner build --delete-conflicting-outputs
+  pre_build:
+    commands:
+      - dart format --output=none --set-exit-if-changed lib test
+      - flutter analyze
+      - flutter test --coverage
+      - dart run tool/check_coverage.dart
+  build:
+    commands:
+      - test "$AWS_REGION" = ap-south-1 || test "$AWS_REGION" = ap-south-2
+      - test -n "$API_URL" && test -n "$CERT_SHA256"
+      - test -f android/key.properties
+      - flutter build appbundle --release --obfuscate --split-debug-info=build/symbols/android --dart-define=MOCK_API=false --dart-define=AWS_REGION="$AWS_REGION" --dart-define=API_URL="$API_URL" --dart-define=CERT_SHA256="$CERT_SHA256"
+artifacts:
+  files:
+    - build/app/outputs/bundle/release/*.aab
+    - build/symbols/android/*
+    - coverage/lcov.info

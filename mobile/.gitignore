@@ -1,0 +1,14 @@
+.dart_tool/
+build/
+coverage/
+*.freezed.dart
+*.g.dart
+android/key.properties
+*.jks
+*.keystore
+.env*
+*.log
+.flutter-plugins
+.flutter-plugins-dependencies
+*.iml
+.idea/
