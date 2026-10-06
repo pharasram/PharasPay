@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  color-scheme: light;
+}
+body {
+  @apply bg-white font-sans text-slate-900 antialiased;
+}
+h1,
+h2,
+h3,
+h4 {
+  @apply font-heading;
+}
+::selection {
+  @apply bg-blue-100 text-blue-950;
+}
+.container-shell {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+}
+.section {
+  @apply py-16 lg:py-24;
+}
+.eyebrow {
+  @apply text-xs font-bold uppercase tracking-[0.16em] text-primary;
+}
+.heading {
+  @apply text-3xl font-bold tracking-tight sm:text-4xl;
+}
+.field-label {
+  @apply mb-2 block text-sm font-semibold text-slate-700;
+}
+.input-select {
+  @apply min-h-11 w-full rounded-lg border border-slate-300 bg-white px-3 py-2;
+}
+.prose-copy {
+  @apply space-y-6 text-base leading-8 text-slate-600;
+}
+input[type='range'] {
+  accent-color: #0a5cff;
+}
+summary {
+  cursor: pointer;
+}
+:focus-visible {
+  outline: 2px solid #0a5cff;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media print {
+  header,
+  footer,
+  nav,
+  button,
+  .no-print {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+  }
+  body {
+    color: #000;
+    background: #fff;
+  }
+  .shadow-card {
+    box-shadow: none;
+  }
+}

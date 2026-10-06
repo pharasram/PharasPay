@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.swc/
+coverage/
+.env*
+!.env.example
+*.tsbuildinfo
+test-results/
+playwright-report/
+.jest-cache/
+*.log

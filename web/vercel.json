@@ -1,0 +1,6 @@
+{
+  "framework": "nextjs",
+  "regions": ["bom1"],
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm typecheck && pnpm lint && pnpm test:coverage && pnpm security:check && pnpm build"
+}

@@ -1,0 +1,17 @@
+export const validApplication = {
+  mobile: '9999999999',
+  name: 'Demo Customer',
+  email: 'customer@example.test',
+  dob: '1995-01-15',
+  pan: 'ABCDE1234F',
+  aadhaarConsent: true,
+  kycReference: 'DEMO-KYC',
+  employment: 'Salaried',
+  income: 50000,
+  account: '123456789012',
+  ifsc: 'DEMO0123456',
+  amount: 250000,
+  tenure: 24,
+  purpose: 'Other',
+  consent: true,
+};
